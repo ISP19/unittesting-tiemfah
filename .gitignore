@@ -16,3 +16,6 @@ htmlcov/
 .project
 .pydevproject
 .vscode/
+
+# my personal playground
+excercise.py
