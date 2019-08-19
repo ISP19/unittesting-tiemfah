@@ -32,7 +32,10 @@ class FractionTest(unittest.TestCase):
     def test_add(self):
         # 3/4 = 2/3 + 1/12
         self.assertEqual(Fraction(3,4), Fraction(1,12) + Fraction(2,3))
+        # get whole number after addition
         self.assertEqual(Fraction(1), Fraction(1,2) + Fraction(1,2))
+        # get fraction after addition with whole number
+        self.assertEqual(Fraction(9,4), Fraction(2) + Fraction(1,4))
 
     def test_mul(self):
         self.assertEqual(Fraction(2,3), Fraction(1)*Fraction(2,3))

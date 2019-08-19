@@ -17,9 +17,9 @@ class Fraction:
            Argument:
                 takes 2 int or float in parameter.
         """
-        if not isinstance(numerator, int) or isinstance(numerator, float):
+        if not (isinstance(numerator, int) or isinstance(numerator, float)):
             return TypeError
-        if not isinstance(denominator, int) or isinstance(denominator, float):
+        if not (isinstance(denominator, int) or isinstance(denominator, float)):
             return TypeError
         if denominator == 0:
             if numerator ==0:
