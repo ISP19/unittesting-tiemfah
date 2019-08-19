@@ -60,3 +60,14 @@ class FractionTest(unittest.TestCase):
         self.assertFalse(n_inf_one == inf)
         # infinity != normal fraction
         self.assertFalse(inf == f)
+
+    def test_sub(self):
+        self.assertEqual(Fraction(1,4), Fraction(2, 4)-Fraction(1, 4))
+    
+    def test_gt(self):
+        self.assertTrue(Fraction(1) > Fraction(1,2))
+        self.assertFalse(Fraction(1) > Fraction(1))
+    
+    def test_neg(self):
+        self.assertEqual(Fraction(1, 2), -Fraction(-1, 2))
+        self.assertEqual(Fraction(1, -2), -Fraction(1, 2))

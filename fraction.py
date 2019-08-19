@@ -77,6 +77,23 @@ class Fraction:
         else:
             return Fraction((self.numerator*frac.numerator),(self.denominator*frac.denominator))
 
+    def __sub__(self, frac):
+        """Return the subtraction of two fractions as a new fraction.
+           Use the standard formula  a/b - c/d = (ad-bc)/(b*d)
+        """
+        if not isinstance(frac, Fraction):
+            return False
+        else:
+            new_deno = self.denominator * frac.denominator
+            new_numa = self.numerator*frac.denominator - self.denominator*frac.numerator
+            return Fraction(new_numa,new_deno) 
+
+    def __gt__(self, frac):
+        return (self.numerator*frac.denominator) > (frac.numerator*self.denominator)
+    
+    def __neg__(self):
+        return Fraction(-self.numerator, self.denominator)
+
     def __str__(self):
         if self.numerator% self.denominator == 0:
             return f"{int(self.numerator/self.denominator)}"
