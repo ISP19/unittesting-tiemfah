@@ -59,6 +59,10 @@ class Fraction:
         """
         if not isinstance(frac, Fraction):
             return False
+        if self.denominator == 0:
+            return Fraction(self.numerator, self.denominator)
+        elif frac.denominator == 0:
+            return Fraction(frac.numerator, frac.denominator)
         else:
             new_deno = self.denominator * frac.denominator
             new_numa = self.numerator*frac.denominator + self.denominator*frac.numerator
@@ -95,7 +99,12 @@ class Fraction:
         return Fraction(-self.numerator, self.denominator)
 
     def __str__(self):
-        if self.numerator% self.denominator == 0:
+        if self.denominator == 0:
+            if self.numerator > 0:
+                return "infinity"
+            else:
+                return "negative infinity"
+        elif self.numerator% self.denominator == 0:
             return f"{int(self.numerator/self.denominator)}"
         return f"{int(self.numerator)}/{int(self.denominator)}"
 
@@ -105,3 +114,6 @@ class Fraction:
            is unique (3/6 is same as 1/2).
         """
         return self.numerator == frac.numerator and self.denominator == frac.denominator
+
+
+print(Fraction(-1,0)+Fraction(1,2))
