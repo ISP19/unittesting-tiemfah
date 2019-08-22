@@ -23,7 +23,8 @@ class Fraction:
             return TypeError
         if denominator == 0:
             if numerator ==0:
-                raise ValueError('can be 0 on both parameter')
+                self.numerator = 0
+                self.denominator = 0
             elif numerator > 0:
                 self.numerator = 1
                 self.denominator = 0
@@ -59,7 +60,11 @@ class Fraction:
         """
         if not isinstance(frac, Fraction):
             return False
-        if self.denominator == 0:
+        if self.denominator+self.numerator == 0:
+            return Fraction(frac.numerator, frac.denominator)
+        elif frac.denominator+frac.numerator == 0:
+            return Fraction(self.numerator, self.denominator)
+        elif self.denominator == 0:
             return Fraction(self.numerator, self.denominator)
         elif frac.denominator == 0:
             return Fraction(frac.numerator, frac.denominator)
@@ -100,7 +105,9 @@ class Fraction:
 
     def __str__(self):
         if self.denominator == 0:
-            if self.numerator > 0:
+            if self.numerator ==0:
+                return "0"
+            elif self.numerator > 0:
                 return "infinity"
             else:
                 return "negative infinity"
@@ -116,4 +123,4 @@ class Fraction:
         return self.numerator == frac.numerator and self.denominator == frac.denominator
 
 
-print(Fraction(-1,0)+Fraction(1,2))
+print(Fraction(0,0)+ Fraction(1,2))
