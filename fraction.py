@@ -64,6 +64,8 @@ class Fraction:
             return Fraction(frac.numerator, frac.denominator)
         elif frac.denominator+frac.numerator == 0:
             return Fraction(self.numerator, self.denominator)
+        elif self.denominator==0 and frac.denominator == 0:
+            return Fraction(self.numerator+frac.numerator, 0)
         elif self.denominator == 0:
             return Fraction(self.numerator, self.denominator)
         elif frac.denominator == 0:
@@ -82,7 +84,18 @@ class Fraction:
 
     def __mul__(self, frac):
         if not isinstance(frac, Fraction):
-            return False
+            raise TypeError("can not multiply Fraction with another class.")
+        elif self.denominator ==0 and frac.denominator==0:
+            if self.numerator > 0 and frac.numerator >0:
+                return Fraction(1,0)
+            elif self.numerator > 0 and frac.numerator < 0:
+                return Fraction(-1,0)
+            elif self.numerator < 0 and frac.numerator > 0:
+                return Fraction(-1,0)
+            elif self.numerator < 0 and frac.numerator <0:
+                return Fraction(1,0)
+        elif self.denominator+self.numerator ==0 or frac.denominator+frac.numerator==0:
+            return Fraction(0, 0)
         else:
             return Fraction((self.numerator*frac.numerator),(self.denominator*frac.denominator))
 
@@ -123,4 +136,4 @@ class Fraction:
         return self.numerator == frac.numerator and self.denominator == frac.denominator
 
 
-print(Fraction(0,0)+ Fraction(1,2))
+print(Fraction(-1,0)* Fraction(-1,0))

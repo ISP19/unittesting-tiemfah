@@ -71,3 +71,7 @@ class FractionTest(unittest.TestCase):
     def test_neg(self):
         self.assertEqual(Fraction(1, 2), -Fraction(-1, 2))
         self.assertEqual(Fraction(1, -2), -Fraction(1, 2))
+
+    def test_inf_neg_inf(self):
+        self.assertEqual(Fraction(1, 0), Fraction(1, 0)+ Fraction(1, 2))
+        self.assertEqual(Fraction(1, 0), Fraction(1, 0)* Fraction(1, 2))
