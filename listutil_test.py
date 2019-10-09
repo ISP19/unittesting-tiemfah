@@ -13,7 +13,7 @@ class TestListUtil(unittest.TestCase):
         # 1 element in list test
         self.assertEqual([5], unique([5]))
         self.assertEqual([101], unique([101]))
-        self.assertEqual(['BOO!', unique(['BOO!'])])
+        self.assertEqual(['BOO!'], unique(['BOO!']))
 
     def test_unique_multiple(self):
         """ test function unique on multiple element in list"""
