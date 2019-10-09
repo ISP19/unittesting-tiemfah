@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/tiemfah/nittesting-tiemfah.svg?branch=master)](https://travis-ci.com/tiemfah/nittesting-tiemfah)
+[![Build Status](https://travis-ci.com/tiemfah/unittesting-tiemfah.svg?branch=master)](https://travis-ci.com/tiemfah/nittesting-tiemfah)
 ## Unit Testing Assignment
 
 by Sivanat Subpaisarn
