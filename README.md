@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/tiemfah/unittesting-tiemfah.svg?branch=master)](https://travis-ci.com/tiemfah/nittesting-tiemfah)
+[![codecov](https://codecov.io/gh/tiemfah/unittesting-tiemfah/branch/master/graph/badge.svg)](https://codecov.io/gh/tiemfah/unittesting-tiemfah)
 ## Unit Testing Assignment
 
 by Sivanat Subpaisarn

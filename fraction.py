@@ -104,7 +104,7 @@ class Fraction:
            Use the standard formula  a/b - c/d = (ad-bc)/(b*d)
         """
         if not isinstance(frac, Fraction):
-            return False
+            raise TypeError
         else:
             new_deno = self.denominator * frac.denominator
             new_numa = self.numerator*frac.denominator - self.denominator*frac.numerator

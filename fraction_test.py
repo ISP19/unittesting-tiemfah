@@ -40,6 +40,11 @@ class FractionTest(unittest.TestCase):
     def test_mul(self):
         self.assertEqual(Fraction(2,3), Fraction(1)*Fraction(2,3))
         self.assertEqual(Fraction(2,9), Fraction(1,3)* Fraction(2,3))
+        with self.assertRaises(TypeError):
+           Fraction(1, 4) * '1'
+        self.assertEqual(Fraction(1,0), Fraction(1,0)* Fraction(2,0))
+        self.assertEqual(Fraction(-1,0), Fraction(-1,3)* Fraction(2,0))
+        self.assertEqual(Fraction(-1,0), Fraction(1,0)* Fraction(-2,0))
 
     def test_eq(self):
         f = Fraction(1,2)
@@ -63,6 +68,8 @@ class FractionTest(unittest.TestCase):
 
     def test_sub(self):
         self.assertEqual(Fraction(1,4), Fraction(2, 4)-Fraction(1, 4))
+        with self.assertRaises(TypeError):
+            Fraction(1, 4) - 1
     
     def test_gt(self):
         self.assertTrue(Fraction(1) > Fraction(1,2))
@@ -75,3 +82,11 @@ class FractionTest(unittest.TestCase):
     def test_inf_neg_inf(self):
         self.assertEqual(Fraction(1, 0), Fraction(1, 0)+ Fraction(1, 2))
         self.assertEqual(Fraction(1, 0), Fraction(1, 0)* Fraction(1, 2))
+
+    def test_str_inf(self):
+        self.assertEqual("negative infinity", (Fraction(-1, 0).__str__()))
+        self.assertEqual("infinity", (Fraction(1, 0).__str__()))
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
