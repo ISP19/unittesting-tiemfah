@@ -19,3 +19,5 @@ htmlcov/
 
 # my personal playground
 excercise.py
+
+.DS_Store
