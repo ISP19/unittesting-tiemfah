@@ -59,7 +59,7 @@ class Fraction:
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
         if not isinstance(frac, Fraction):
-            return False
+            raise TypeError
         if self.denominator+self.numerator == 0:
             return Fraction(frac.numerator, frac.denominator)
         elif frac.denominator+frac.numerator == 0:

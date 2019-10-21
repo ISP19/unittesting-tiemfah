@@ -13,4 +13,5 @@ script:
   - python -m unittest discover -p "*_test.py"
   - coverage run fraction_test.py
 after_success:
+  - export CODECOV_TOKEN="4a985a50-ba43-49c9-a988-e57e9676ab8b"
   - codecov

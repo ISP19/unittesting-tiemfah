@@ -37,6 +37,9 @@ class FractionTest(unittest.TestCase):
         # get fraction after addition with whole number
         self.assertEqual(Fraction(9,4), Fraction(2) + Fraction(1,4))
 
+        with self.assertRaises(TypeError):
+            Fraction(1,1) + "WOHO"
+
     def test_mul(self):
         self.assertEqual(Fraction(2,3), Fraction(1)*Fraction(2,3))
         self.assertEqual(Fraction(2,9), Fraction(1,3)* Fraction(2,3))
@@ -87,6 +90,14 @@ class FractionTest(unittest.TestCase):
         self.assertEqual("negative infinity", (Fraction(-1, 0).__str__()))
         self.assertEqual("infinity", (Fraction(1, 0).__str__()))
 
+    def test_init(self):
+        with self.assertRaises(TypeError):
+            Fraction("1", 0)
+        with self.assertRaises(TypeError):
+            Fraction(0,"1")
+        self.assertEqual(Fraction(0,0), Fraction(0,0))
+
+        Fraction(1.1, 1)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
